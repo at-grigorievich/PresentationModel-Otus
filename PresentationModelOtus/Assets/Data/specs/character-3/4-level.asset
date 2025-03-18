@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afdca379a47b41d5875ad4b687942234, type: 3}
   m_Name: 4-level
   m_EditorClassIdentifier: 
-  level: 3
+  level: 4
   characterSpecsDataFactory:
     maxExperience: 4000
     moveSpeed: 96

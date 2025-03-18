@@ -684,6 +684,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 357515066}
   m_CullTransparentMesh: 1
+--- !u!1 &405630326
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 405630327}
+  - component: {fileID: 405630328}
+  m_Layer: 0
+  m_Name: ----DEBUG----
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &405630327
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405630326}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 461.81375, y: 797.3883, z: -162.13582}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &405630328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405630326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffd42c35aa134a2f801b713e0dcab21b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  addedExperience: 500
 --- !u!1 &428419306
 GameObject:
   m_ObjectHideFlags: 0
@@ -2416,6 +2461,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1088453544}
+  - component: {fileID: 1088453545}
   m_Layer: 0
   m_Name: ----SYSTEM----
   m_TagString: Untagged
@@ -2438,6 +2484,30 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1088453545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088453543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4be0136acfa411e9e9f9caff7a58773, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentReference:
+    TypeName: 
+  autoRun: 1
+  autoInjectGameObjects:
+  - {fileID: 405630326}
+  characterStorageFactory:
+    configs:
+    - {fileID: 11400000, guid: dec1d0137916a544a91dabd8394f3045, type: 2}
+    - {fileID: 11400000, guid: ed0bf3a381ad38c458c171c7e445bc60, type: 2}
+    - {fileID: 11400000, guid: a0a1e350fcded13428140ae1f293ed6c, type: 2}
+  characterCardPresenterFactory:
+    view: {fileID: 449890515}
 --- !u!1 &1141361081
 GameObject:
   m_ObjectHideFlags: 0
@@ -3988,5 +4058,6 @@ SceneRoots:
   - {fileID: 963194228}
   - {fileID: 705507995}
   - {fileID: 1945655838}
-  - {fileID: 125962454}
   - {fileID: 1088453544}
+  - {fileID: 405630327}
+  - {fileID: 125962454}

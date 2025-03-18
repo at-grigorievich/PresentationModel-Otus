@@ -1,8 +1,22 @@
 ﻿using System;
 using UI.Views;
+using UnityEngine;
+using VContainer;
 
 namespace Core
 {
+    [Serializable]
+    public sealed class CharacterCardPresenterFactory
+    {
+        [SerializeField] private CharacterCardView view;
+
+        public void Create(IContainerBuilder builder)
+        {
+            builder.Register<CharacterCardPresenter>(Lifetime.Singleton)
+                .WithParameter(view);
+        }
+    }
+    
     public sealed class CharacterCardPresenter
     {
         private readonly CharacterCardView _cardView;
@@ -17,7 +31,11 @@ namespace Core
         public void OpenPopup()
         {
             if(_characterViewModel == null)
-                throw new NullReferenceException("The character is not selected.");
+            {
+                //throw new NullReferenceException("The character is not selected.");
+                Debug.LogWarning("The character is not selected.");
+                return;
+            }
             
             _cardView.Show(_characterViewModel);
         }
@@ -42,7 +60,11 @@ namespace Core
         public void AddExpToCharacter(int experience)
         {
             if (_characterViewModel == null)
-                throw new NullReferenceException("no character selected");
+            {
+                //throw new NullReferenceException("no character selected");
+                Debug.LogWarning("The character is not selected.");
+                return;
+            }
             
             _characterViewModel.AddExperience(experience);
         }
