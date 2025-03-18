@@ -64,6 +64,7 @@ namespace UI.Views
         private void Awake()
         {
             _canvas = GetComponent<Canvas>();
+            Hide();
         } 
         
         public void ChangeCharacter(CharacterViewModel characterViewModel)
@@ -97,6 +98,8 @@ namespace UI.Views
 
         public void Dispose()
         {
+            if(_selectedCharacterViewModel == null) return;
+            
             _selectedCharacterViewModel.OnExperienceChanged -= OnCharacterExperienceChanged;
             _selectedCharacterViewModel.OnLevelChanged -= OnCharacterLevelChanged;
             
@@ -117,6 +120,8 @@ namespace UI.Views
         private void OnCharacterExperienceChanged()
         {
             Debug.Log("change exp");
+            Debug.Log($"{_selectedCharacterViewModel.CurrentExperience} / {_selectedCharacterViewModel.Specs.MaxExperience}");
+            Debug.Log(_selectedCharacterViewModel.AvailableLevelUp);
         }
 
         private void OnCharacterLevelChanged()

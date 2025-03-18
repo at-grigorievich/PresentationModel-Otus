@@ -15,6 +15,8 @@ namespace Core
         public int CurrentExperience { get; private set; }
 
         public ICharacterSpecs Specs => _characterSpecsByLevel[CurrentLevel];
+
+        public bool AvailableLevelUp => CurrentExperience >= Specs.MaxExperience;
         
         //TODO: replace with RX properties ( like ReactiveProperty<int> )
         public event Action OnExperienceChanged;
