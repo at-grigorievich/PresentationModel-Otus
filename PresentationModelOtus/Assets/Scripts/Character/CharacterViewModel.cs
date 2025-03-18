@@ -16,7 +16,8 @@ namespace Core
 
         public ICharacterSpecs Specs => _characterSpecsByLevel[CurrentLevel];
 
-        public bool AvailableLevelUp => CurrentExperience >= Specs.MaxExperience;
+        public bool AvailableLevelUp => CurrentLevel < _characterSpecsByLevel.Count 
+                                        && CurrentExperience >= Specs.MaxExperience;
         
         //TODO: replace with RX properties ( like ReactiveProperty<int> )
         public event Action OnExperienceChanged;
@@ -37,6 +38,9 @@ namespace Core
         public void LevelUp()
         {
             CurrentLevel = Mathf.Clamp(CurrentLevel + 1, 1, _characterSpecsByLevel.Count);
+            
+            Debug.Log(CurrentLevel);
+            OnLevelChanged?.Invoke();
         }
 
         public void AddExperience(int experience)

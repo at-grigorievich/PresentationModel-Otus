@@ -2,7 +2,7 @@
 using UnityEngine;
 using VContainer;
 
-namespace Core.Storage
+namespace Core
 {
     [Serializable]
     public sealed class CharacterStorageFactory

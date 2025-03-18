@@ -1,6 +1,7 @@
 ﻿using System;
 using Core;
 using TMPro;
+using UI.Elements;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -56,6 +57,8 @@ namespace UI.Views
     {
         [SerializeField] private CharacterInfoOutput characterInfo;
         [SerializeField] private CharacterSpecsOutput characterSpecs;
+        [Space(10)] 
+        [SerializeField] private BigButton levelUpBtn;
 
         private Canvas _canvas;
         
@@ -85,6 +88,7 @@ namespace UI.Views
         public void Show(CharacterViewModel characterViewModel)
         {
             ChangeCharacter(characterViewModel);
+            levelUpBtn.AddListener(OnLevelUpPressed);
             
             _canvas.enabled = true;
         }
@@ -92,6 +96,7 @@ namespace UI.Views
         public void Hide()
         {
             _canvas.enabled = false;
+            levelUpBtn.RemoveListener(OnLevelUpPressed);
             
             Dispose();
         }
@@ -99,7 +104,7 @@ namespace UI.Views
         public void Dispose()
         {
             if(_selectedCharacterViewModel == null) return;
-            
+
             _selectedCharacterViewModel.OnExperienceChanged -= OnCharacterExperienceChanged;
             _selectedCharacterViewModel.OnLevelChanged -= OnCharacterLevelChanged;
             
@@ -115,6 +120,8 @@ namespace UI.Views
                 _selectedCharacterViewModel.Avatar);
             
             characterSpecs.SetSpecs(_selectedCharacterViewModel.Specs);
+            
+            levelUpBtn.SetAvailable(_selectedCharacterViewModel.AvailableLevelUp);
         }
 
         private void OnCharacterExperienceChanged()
@@ -122,12 +129,22 @@ namespace UI.Views
             Debug.Log("change exp");
             Debug.Log($"{_selectedCharacterViewModel.CurrentExperience} / {_selectedCharacterViewModel.Specs.MaxExperience}");
             Debug.Log(_selectedCharacterViewModel.AvailableLevelUp);
+            
+            levelUpBtn.SetAvailable(_selectedCharacterViewModel.AvailableLevelUp);
         }
 
         private void OnCharacterLevelChanged()
         {
             characterInfo.SetLevel(_selectedCharacterViewModel.CurrentLevel);
             characterSpecs.SetSpecs(_selectedCharacterViewModel.Specs);
+            
+            levelUpBtn.SetAvailable(_selectedCharacterViewModel.AvailableLevelUp);
+        }
+
+        private void OnLevelUpPressed()
+        {
+            if(_selectedCharacterViewModel == null) return;
+            _selectedCharacterViewModel.LevelUp();
         }
     }
 }

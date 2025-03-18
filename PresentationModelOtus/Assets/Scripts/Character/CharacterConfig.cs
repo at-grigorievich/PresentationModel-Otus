@@ -17,7 +17,8 @@ namespace Core
         public Sprite Icon => characterIcon;
 
         public IEnumerable<KeyValuePair<int, ICharacterSpecs>> SpecsByLevel =>
-            characterSpecsByLevel.Select(config =>
-                new KeyValuePair<int, ICharacterSpecs>(config.Level, config.CharacterSpecsData));
+            characterSpecsByLevel
+                .Select(config => new KeyValuePair<int, ICharacterSpecs>(config.Level, config.CharacterSpecsData))
+                .OrderBy(pair => pair.Key);
     }
 }
