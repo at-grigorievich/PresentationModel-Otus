@@ -70,7 +70,7 @@ namespace UI.Views
             Hide();
         } 
         
-        public void ChangeCharacter(CharacterViewModel characterViewModel)
+        public void Show(CharacterViewModel characterViewModel)
         {
             if (_selectedCharacterViewModel != null)
             {
@@ -83,11 +83,7 @@ namespace UI.Views
             _selectedCharacterViewModel.OnLevelChanged += OnCharacterLevelChanged;
             
             ShowCharacter();
-        }
-
-        public void Show(CharacterViewModel characterViewModel)
-        {
-            ChangeCharacter(characterViewModel);
+            
             levelUpBtn.AddListener(OnLevelUpPressed);
             
             _canvas.enabled = true;
@@ -96,15 +92,16 @@ namespace UI.Views
         public void Hide()
         {
             _canvas.enabled = false;
-            levelUpBtn.RemoveListener(OnLevelUpPressed);
             
             Dispose();
         }
 
         public void Dispose()
         {
+            levelUpBtn.RemoveListener(OnLevelUpPressed);
+            
             if(_selectedCharacterViewModel == null) return;
-
+            
             _selectedCharacterViewModel.OnExperienceChanged -= OnCharacterExperienceChanged;
             _selectedCharacterViewModel.OnLevelChanged -= OnCharacterLevelChanged;
             

@@ -37,6 +37,7 @@ namespace Core
         
         public void LevelUp()
         {
+            Debug.Log("Afssaf");
             CurrentLevel = Mathf.Clamp(CurrentLevel + 1, 1, _characterSpecsByLevel.Count);
             
             Debug.Log(CurrentLevel);

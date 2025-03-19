@@ -51,12 +51,6 @@ namespace Core
             _cardView.Hide();
         }
 
-        public void ChangeCharacter(CharacterViewModel characterViewModel)
-        {
-            _characterViewModel = characterViewModel;
-            _cardView.ChangeCharacter(_characterViewModel);
-        }
-
         public void AddExpToCharacter(int experience)
         {
             if (_characterViewModel == null)
