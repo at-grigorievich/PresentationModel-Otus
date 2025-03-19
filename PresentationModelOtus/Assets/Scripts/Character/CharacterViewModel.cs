@@ -14,6 +14,12 @@ namespace Core
         public int CurrentLevel { get; private set; }
         public int CurrentExperience { get; private set; }
 
+        public float MaxExperience => Specs.MaxExperience;
+
+        public float PreviousMaxExperience => CurrentLevel > 1
+            ? _characterSpecsByLevel[CurrentLevel - 1].MaxExperience
+            : 0f;
+
         public ICharacterSpecs Specs => _characterSpecsByLevel[CurrentLevel];
 
         public bool AvailableLevelUp => CurrentLevel < _characterSpecsByLevel.Count 
@@ -37,10 +43,7 @@ namespace Core
         
         public void LevelUp()
         {
-            Debug.Log("Afssaf");
             CurrentLevel = Mathf.Clamp(CurrentLevel + 1, 1, _characterSpecsByLevel.Count);
-            
-            Debug.Log(CurrentLevel);
             OnLevelChanged?.Invoke();
         }
 

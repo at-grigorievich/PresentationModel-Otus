@@ -58,8 +58,11 @@ namespace UI.Views
         [SerializeField] private CharacterInfoOutput characterInfo;
         [SerializeField] private CharacterSpecsOutput characterSpecs;
         [Space(10)] 
+        [SerializeField] private OutputSlider experienceSlider;
+        [Space(10)]
         [SerializeField] private BigButton levelUpBtn;
-
+        [SerializeField] private Button closeBtn;
+        
         private Canvas _canvas;
         
         private CharacterViewModel _selectedCharacterViewModel;
@@ -67,9 +70,22 @@ namespace UI.Views
         private void Awake()
         {
             _canvas = GetComponent<Canvas>();
+            
+            experienceSlider.SetPrefix("XP");
+            
             Hide();
-        } 
-        
+        }
+
+        private void OnEnable()
+        {
+            closeBtn.onClick.AddListener(Hide);
+        }
+
+        private void OnDisable()
+        {
+            closeBtn.onClick.RemoveAllListeners();
+        }
+
         public void Show(CharacterViewModel characterViewModel)
         {
             if (_selectedCharacterViewModel != null)
@@ -93,6 +109,7 @@ namespace UI.Views
         {
             _canvas.enabled = false;
             
+            experienceSlider.Dispose();
             Dispose();
         }
 
@@ -119,13 +136,19 @@ namespace UI.Views
             characterSpecs.SetSpecs(_selectedCharacterViewModel.Specs);
             
             levelUpBtn.SetAvailable(_selectedCharacterViewModel.AvailableLevelUp);
+            
+            experienceSlider.SetValue(
+                _selectedCharacterViewModel.CurrentExperience, 
+                _selectedCharacterViewModel.MaxExperience,
+                _selectedCharacterViewModel.PreviousMaxExperience);
         }
 
         private void OnCharacterExperienceChanged()
         {
-            Debug.Log("change exp");
-            Debug.Log($"{_selectedCharacterViewModel.CurrentExperience} / {_selectedCharacterViewModel.Specs.MaxExperience}");
-            Debug.Log(_selectedCharacterViewModel.AvailableLevelUp);
+            experienceSlider.SetValue(
+                _selectedCharacterViewModel.CurrentExperience, 
+                _selectedCharacterViewModel.MaxExperience,
+                _selectedCharacterViewModel.PreviousMaxExperience);
             
             levelUpBtn.SetAvailable(_selectedCharacterViewModel.AvailableLevelUp);
         }
@@ -134,6 +157,11 @@ namespace UI.Views
         {
             characterInfo.SetLevel(_selectedCharacterViewModel.CurrentLevel);
             characterSpecs.SetSpecs(_selectedCharacterViewModel.Specs);
+            
+            experienceSlider.SetValue(
+                _selectedCharacterViewModel.CurrentExperience, 
+                _selectedCharacterViewModel.MaxExperience,
+                _selectedCharacterViewModel.PreviousMaxExperience);
             
             levelUpBtn.SetAvailable(_selectedCharacterViewModel.AvailableLevelUp);
         }

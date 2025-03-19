@@ -931,7 +931,9 @@ MonoBehaviour:
     intelligenceOutput: {fileID: 1183745133}
     damageOutput: {fileID: 1597500374}
     regenerationOutput: {fileID: 2033874324}
+  experienceSlider: {fileID: 1141361085}
   levelUpBtn: {fileID: 2004248456}
+  closeBtn: {fileID: 114865820}
 --- !u!1 &505007996
 GameObject:
   m_ObjectHideFlags: 0
@@ -1036,7 +1038,7 @@ GameObject:
   - component: {fileID: 586709985}
   - component: {fileID: 586709984}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: xp-slider-output
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2520,8 +2522,9 @@ GameObject:
   - component: {fileID: 1141361082}
   - component: {fileID: 1141361084}
   - component: {fileID: 1141361083}
+  - component: {fileID: 1141361085}
   m_Layer: 5
-  m_Name: xp-wrapper
+  m_Name: xp-slider-wrapper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2586,6 +2589,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1141361081}
   m_CullTransparentMesh: 1
+--- !u!114 &1141361085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141361081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f34fbf82d61427c9930b582515b1ed3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 1880023483}
+  valueOutput: {fileID: 586709984}
+  skinSwitcher:
+    sliderImage: {fileID: 1880023484}
+    progressSlider: {fileID: 21300000, guid: c9ea6483ca2494ae892f993fec2cb4a6, type: 3}
+    completedSlider: {fileID: 21300000, guid: ebca5e0b7178447bea6a7fe825585b0a, type: 3}
+  animateSpeed: 880
 --- !u!1 &1183745131
 GameObject:
   m_ObjectHideFlags: 0
@@ -3388,7 +3410,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 18, y: 0}
-  m_SizeDelta: {x: 512, y: -30}
+  m_SizeDelta: {x: 515, y: -30}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1880023484
 MonoBehaviour:
