@@ -557,6 +557,8 @@ GameObject:
   m_Component:
   - component: {fileID: 144127747}
   - component: {fileID: 144127749}
+  - component: {fileID: 144127750}
+  - component: {fileID: 144127751}
   m_Layer: 5
   m_Name: popup-panel
   m_TagString: Untagged
@@ -593,6 +595,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 144127746}
   m_CullTransparentMesh: 1
+--- !u!114 &144127750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 144127746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4136f1668eb242eabdceb6d506f85b72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelOutput: {fileID: 723853491}
+  experienceSlider: {fileID: 1141361085}
+--- !u!114 &144127751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 144127746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b575c3706924c9e90acc0c69526027e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nicknameOutput: {fileID: 840267412}
+  avatarImage: {fileID: 76328421}
+  descriptionOutput: {fileID: 1039364013}
 --- !u!1 &264179739
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,6 +634,7 @@ GameObject:
   m_Component:
   - component: {fileID: 264179740}
   - component: {fileID: 264179741}
+  - component: {fileID: 264179742}
   m_Layer: 5
   m_Name: intelligence-stat-panel
   m_TagString: Untagged
@@ -639,6 +671,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 264179739}
   m_CullTransparentMesh: 1
+--- !u!114 &264179742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264179739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc0d9829acac4dbea0970605e32f4737, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statOutput: {fileID: 1183745133}
 --- !u!1 &357515066
 GameObject:
   m_ObjectHideFlags: 0
@@ -740,6 +785,7 @@ GameObject:
   - component: {fileID: 428419307}
   - component: {fileID: 428419308}
   - component: {fileID: 428419309}
+  - component: {fileID: 428419310}
   m_Layer: 5
   m_Name: stats-wrapper
   m_TagString: Untagged
@@ -804,6 +850,24 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 1
   m_ConstraintCount: 2
+--- !u!114 &428419310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 428419306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7050530605b74eeab0d90d0354b717bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpecView: {fileID: 1653277448}
+  staminaSpecView: {fileID: 540878012}
+  dexteritySpecView: {fileID: 505007999}
+  intelligenceSpecView: {fileID: 264179742}
+  damageSpecView: {fileID: 633583093}
+  regenerationView: {fileID: 2045987773}
 --- !u!1 &449890510
 GameObject:
   m_ObjectHideFlags: 0
@@ -919,19 +983,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 579079ce14b84ec3af61a3ffbd241cd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterInfo:
-    nicknameOutput: {fileID: 840267412}
-    avatarImage: {fileID: 76328421}
-    descriptionOutput: {fileID: 1039364013}
-    lvlOutput: {fileID: 723853491}
-  characterSpecs:
-    moveSpeedOutput: {fileID: 2107106425}
-    stamineOutput: {fileID: 1766927214}
-    dexterityOutput: {fileID: 938166333}
-    intelligenceOutput: {fileID: 1183745133}
-    damageOutput: {fileID: 1597500374}
-    regenerationOutput: {fileID: 2033874324}
-  experienceSlider: {fileID: 1141361085}
+  aboutCharacterView: {fileID: 144127751}
+  characterLevelView: {fileID: 144127750}
+  specSetView: {fileID: 428419310}
   levelUpBtn: {fileID: 2004248456}
   closeBtn: {fileID: 114865820}
 --- !u!1 &505007996
@@ -944,6 +998,7 @@ GameObject:
   m_Component:
   - component: {fileID: 505007997}
   - component: {fileID: 505007998}
+  - component: {fileID: 505007999}
   m_Layer: 5
   m_Name: dexterity-stat-panel
   m_TagString: Untagged
@@ -980,6 +1035,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 505007996}
   m_CullTransparentMesh: 1
+--- !u!114 &505007999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 505007996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc0d9829acac4dbea0970605e32f4737, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statOutput: {fileID: 938166333}
 --- !u!1 &540878009
 GameObject:
   m_ObjectHideFlags: 0
@@ -990,6 +1058,7 @@ GameObject:
   m_Component:
   - component: {fileID: 540878010}
   - component: {fileID: 540878011}
+  - component: {fileID: 540878012}
   m_Layer: 5
   m_Name: stamina-stat-panel
   m_TagString: Untagged
@@ -1026,6 +1095,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 540878009}
   m_CullTransparentMesh: 1
+--- !u!114 &540878012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 540878009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc0d9829acac4dbea0970605e32f4737, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statOutput: {fileID: 1766927214}
 --- !u!1 &586709982
 GameObject:
   m_ObjectHideFlags: 0
@@ -1170,6 +1252,7 @@ GameObject:
   m_Component:
   - component: {fileID: 633583091}
   - component: {fileID: 633583092}
+  - component: {fileID: 633583093}
   m_Layer: 5
   m_Name: damage-stat-panel
   m_TagString: Untagged
@@ -1206,6 +1289,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 633583090}
   m_CullTransparentMesh: 1
+--- !u!114 &633583093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633583090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc0d9829acac4dbea0970605e32f4737, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statOutput: {fileID: 1597500374}
 --- !u!1 &646430245
 GameObject:
   m_ObjectHideFlags: 0
@@ -2504,12 +2600,12 @@ MonoBehaviour:
   autoRun: 1
   autoInjectGameObjects:
   - {fileID: 405630326}
-  characterStorageFactory:
+  characterStorageCreator:
     configs:
     - {fileID: 11400000, guid: dec1d0137916a544a91dabd8394f3045, type: 2}
     - {fileID: 11400000, guid: ed0bf3a381ad38c458c171c7e445bc60, type: 2}
     - {fileID: 11400000, guid: a0a1e350fcded13428140ae1f293ed6c, type: 2}
-  characterCardPresenterFactory:
+  characterCardCreator:
     view: {fileID: 449890515}
 --- !u!1 &1141361081
 GameObject:
@@ -3158,6 +3254,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1653277445}
   - component: {fileID: 1653277447}
+  - component: {fileID: 1653277448}
   m_Layer: 5
   m_Name: move-stat-panel
   m_TagString: Untagged
@@ -3194,6 +3291,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1653277444}
   m_CullTransparentMesh: 1
+--- !u!114 &1653277448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653277444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc0d9829acac4dbea0970605e32f4737, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statOutput: {fileID: 2107106425}
 --- !u!1 &1766927212
 GameObject:
   m_ObjectHideFlags: 0
@@ -3919,6 +4029,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2045987771}
   - component: {fileID: 2045987772}
+  - component: {fileID: 2045987773}
   m_Layer: 5
   m_Name: regeneration-stat-panel
   m_TagString: Untagged
@@ -3955,6 +4066,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2045987770}
   m_CullTransparentMesh: 1
+--- !u!114 &2045987773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2045987770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc0d9829acac4dbea0970605e32f4737, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  statOutput: {fileID: 2033874324}
 --- !u!1 &2107106423
 GameObject:
   m_ObjectHideFlags: 0

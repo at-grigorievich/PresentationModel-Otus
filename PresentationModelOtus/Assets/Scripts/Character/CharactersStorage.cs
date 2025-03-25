@@ -1,11 +1,12 @@
 ﻿using System;
+using Core.Model;
 using UnityEngine;
 using VContainer;
 
 namespace Core
 {
     [Serializable]
-    public sealed class CharacterStorageFactory
+    public sealed class CharacterStorageCreator
     {
         [SerializeField] private CharacterConfig[] configs;
 
@@ -18,23 +19,23 @@ namespace Core
     
     public sealed class CharactersStorage
     {
-        private readonly CharacterViewModel[] _characters;
+        private readonly CharacterModel[] _characters;
 
         private int _currentSelectedIndex;
         
         public CharactersStorage(CharacterConfig[] configs)
         {
-            _characters = new CharacterViewModel[configs.Length];
+            _characters = new CharacterModel[configs.Length];
 
             for (int i = 0; i < configs.Length; i++)
             {
-                _characters[i] = new CharacterViewModel(configs[i]);
+                _characters[i] = new CharacterModel(configs[i]);
             }
 
             _currentSelectedIndex = -1;
         }
 
-        public CharacterViewModel GetNext()
+        public CharacterModel GetNext()
         {
             UpdateSelectedIndex();
             

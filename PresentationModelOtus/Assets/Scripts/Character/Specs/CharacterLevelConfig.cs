@@ -6,9 +6,12 @@ namespace Core
     public class CharacterLevelConfig: ScriptableObject
     {
         [SerializeField] private int level;
+        [SerializeField] private int maxExperience;
         [SerializeField] private CharacterSpecsDataFactory characterSpecsDataFactory;
 
         public int Level => level;
+        public int MaxExperience => maxExperience;
+        
         public ICharacterSpecs CharacterSpecsData => characterSpecsDataFactory.Get();
     }
 }

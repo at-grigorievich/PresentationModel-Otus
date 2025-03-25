@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: 1-level
   m_EditorClassIdentifier: 
   level: 1
+  maxExperience: 1000
   characterSpecsDataFactory:
-    maxExperience: 1000
-    moveSpeed: 20
-    stamina: 20
-    dexterity: 20
-    intelligence: 20
-    damage: 20
-    regeneration: 20
+    moveSpeed: 23
+    stamina: 26
+    dexterity: 28
+    intelligence: 28
+    damage: 16
+    regeneration: 28

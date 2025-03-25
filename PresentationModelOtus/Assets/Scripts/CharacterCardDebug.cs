@@ -1,4 +1,5 @@
 ﻿using Core;
+using Core.Model;
 using UnityEngine;
 using VContainer;
 
@@ -11,7 +12,7 @@ public sealed class CharacterCardDebug : MonoBehaviour
 
     public void ShowNextCharacterCard()
     {
-        CharacterViewModel character = _storage.GetNext();
+        CharacterModel character = _storage.GetNext();
         _presenter.OpenPopup(character);
     }
 

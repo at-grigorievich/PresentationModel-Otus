@@ -1,4 +1,5 @@
 ﻿using System;
+using Core.Model;
 using UI.Views;
 using UnityEngine;
 using VContainer;
@@ -6,7 +7,7 @@ using VContainer;
 namespace Core
 {
     [Serializable]
-    public sealed class CharacterCardPresenterFactory
+    public sealed class CharacterCardCreator
     {
         [SerializeField] private CharacterCardView view;
 
@@ -20,30 +21,37 @@ namespace Core
     public sealed class CharacterCardPresenter
     {
         private readonly CharacterCardView _cardView;
-
-        private CharacterViewModel _characterViewModel;
+        private readonly CharacterViewModel _characterViewModel;
+        
+        private CharacterModel _characterModel;
         
         public CharacterCardPresenter(CharacterCardView cardView)
         {
             _cardView = cardView;
+            
+            _characterViewModel = new CharacterViewModel();
+            
+            _cardView.Init(_characterViewModel);
         }
 
         public void OpenPopup()
         {
-            if(_characterViewModel == null)
+            if(_characterModel == null)
             {
                 //throw new NullReferenceException("The character is not selected.");
                 Debug.LogWarning("The character is not selected.");
                 return;
             }
             
-            _cardView.Show(_characterViewModel);
+            _cardView.Show();
         }
-        
-        public void OpenPopup(CharacterViewModel characterViewModel)
+
+        public void OpenPopup(CharacterModel nextModel)
         {
-            _characterViewModel = characterViewModel;
-            _cardView.Show(_characterViewModel);
+            _characterModel = nextModel;
+            
+            _characterViewModel.ChangeModel(_characterModel);
+            _cardView.Show();
         }
 
         public void HidePopup()

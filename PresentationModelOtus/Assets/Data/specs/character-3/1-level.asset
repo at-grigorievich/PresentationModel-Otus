@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 1-level
   m_EditorClassIdentifier: 
   level: 1
+  maxExperience: 1000
   characterSpecsDataFactory:
-    maxExperience: 1000
     moveSpeed: 20
     stamina: 20
     dexterity: 20

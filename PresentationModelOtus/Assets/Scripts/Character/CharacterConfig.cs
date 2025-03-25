@@ -16,6 +16,11 @@ namespace Core
         public string Description => characterDescription;
         public Sprite Icon => characterIcon;
 
+        public IEnumerable<KeyValuePair<int, int>> ExperienceByLevel =>
+            characterSpecsByLevel
+                .Select(config => new KeyValuePair<int, int>(config.Level, config.MaxExperience))
+                .OrderBy(pair => pair.Key);
+        
         public IEnumerable<KeyValuePair<int, ICharacterSpecs>> SpecsByLevel =>
             characterSpecsByLevel
                 .Select(config => new KeyValuePair<int, ICharacterSpecs>(config.Level, config.CharacterSpecsData))
