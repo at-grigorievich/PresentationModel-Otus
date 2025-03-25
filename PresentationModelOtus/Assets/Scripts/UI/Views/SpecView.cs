@@ -17,7 +17,7 @@ namespace UI.Views
 
         public void Show()
         {
-            statOutput.text = $"{_viewModel.Tag} {_viewModel.Value}";
+            statOutput.text = $"{_viewModel.Tag}: {_viewModel.Value}";
         }
     }
 }
